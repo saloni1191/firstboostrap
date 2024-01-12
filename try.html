@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyFirstBoostrap</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<!-- Custom Styles -->
+<style>
+  @import url("https://use.fontawesome.com/releases/v5.0.8/css/all.css");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css");
+  @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic");
+  body {
+      font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif!important;
+  }
+  .features-icons {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+    .features-icons .features-icons-item {
+      max-width: 20rem;
+    }
+    .features-icons .features-icons-item .features-icons-icon {
+      height: 7rem;
+    }
+    .features-icons .features-icons-item .features-icons-icon i {
+      font-size: 4.5rem;
+    }
+    .features-icons .features-icons-item:hover .features-icons-icon i {
+      font-size: 5rem;
+    }
+    
+    header.masthead {
+      position: relative;
+      background-color: #343a40;
+      background: url("1.jpg") no-repeat center center;
+      background-size: cover;
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+    header.masthead .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.3;
+    }
+    header.masthead h1 {
+      font-size: 2rem;
+    }
+    @media (min-width: 768px) {
+      header.masthead {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+      }
+      header.masthead h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    .showcase .showcase-text {
+      padding: 3rem;
+    }
+    .showcase .showcase-img {
+      min-height: 30rem;
+      background-size: cover;
+    }
+    @media (min-width: 768px) {
+      .showcase .showcase-text {
+        padding: 7rem;
+      }
+    }
+    
+    .testimonials {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+    .testimonials .testimonial-item {
+      max-width: 18rem;
+    }
+    .testimonials .testimonial-item img {
+      max-width: 12rem;
+      box-shadow: 0px 5px 5px 0px #adb5bd;
+    }
+    
+    .call-to-action {
+      position: relative;
+      background-color: #343a40;
+      background: url("2.jpg") no-repeat center center;
+      background-size: cover;
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+    .call-to-action .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.3;
+    }
+    
+    footer.footer {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-weight: 700;
+  }
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color:blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: black;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn, .btn { 
+     width: 100%;
+  }
+}
+.btn:focus {
+   color:var(--bs-body-color);
+   background-color:var(--bs-body-bg);
+   border-color:#86b7fe;
+   outline:0;
+   box-shadow:0 0 0 .25rem rgba(13,110,253,.25);
+}
+.signupbtn:focus {
+   color:var(--bs-body-color);
+   background-color:var(--bs-body-bg);
+   border-color:#86b7fe;
+   outline:0;
+   box-shadow:0 0 0 .25rem rgba(13,110,253,.25);
+}
+.cancelbtn:focus {
+   color:#f44336;
+   background-color:var(--bs-body-bg);
+   border-color:#f44336;
+   outline:0;
+   box-shadow:0 0 0 .25rem ;
+}
+</style>    
+</head>
+<body>
+  <!-- Navigation-->
+  <nav class="navbar navbar-light bg-light" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="try.html">Landing Page</a>
+    <button type="button" class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form  class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+  </div>
+</nav>
+  <!-- Masthead-->
+  <header id="fm" class="masthead text-white text-center">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-9 mx-auto"><h1 class="mb-5">Get landing page for your business and generate more leads!</h1></div>
+              <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+			  <form action="/action_page.php">
+                      <div class="row">
+                          <div class="col-12 col-md-9 mb-2 mb-md-0">
+						  <input type="email" class="form-control form-control-lg"placeholder="Enter Your Email..." name="email" required>
+						  </div>
+                          <div class="col-12 col-md-3"><button class="btn btn-lg btn-primary" style="margin:auto;" type="submit">Submit</button></div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- Icons Grid-->
+  <section class="features-icons bg-light text-center">
+      <div id="ab" class="container">
+          <div class="row">
+              <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                      <a href="#fr"><div class="features-icons-icon d-flex"><i class="icon-screen-desktop m-auto text-primary"></i></div></a>
+                      <h3>Fully Responsive</h3>
+                      <p class="lead mb-0">This theme will look great on any device, no matter the size:</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                      <a href="#bs"><div class="features-icons-icon d-flex"><i class="icon-layers m-auto text-primary"></i></div></a>
+                      <h3>Bootstrap 5</h3>
+                      <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                     <a href="#es"> <div class="features-icons-icon d-flex"><i class="icon-check m-auto text-primary"></i></div></a>
+                      <h3>Easy to Use</h3>
+                      <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Image Showcases-->
+  <section class="showcase">
+      <div class="container-fluid p-0">
+          <div class="row no-gutters">
+              <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('6.jpg')"></div>
+              <div id="fr" class="col-lg-6 order-lg-1 my-auto showcase-text">
+                  <h2>Fully Responsive Design</h2>
+                  <p class="lead mb-0">When you use a theme created by Start Bootstrap. you know that the theme will look great on any device. whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+              </div>
+          </div>
+          <div class="row no-gutters">
+              <div class="col-lg-6 text-white showcase-img" style="background-image: url('7.jpg')"></div>
+              <div id="bs" class="col-lg-6 my-auto showcase-text">
+                  <h2>Updated For Bootstrap 5</h2>
+                  <p class="lead mb-0">Newly Improved, and full of great utility classes, Bootstrap 5 is mading the way in mobile responsive web development: All of the themes un Start Bootstrap are now using Bootstrap 5</p>
+              </div>
+          </div>
+          <div class="row no-gutters">
+              <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('8.jpg')"></div>
+              <div id="es" class="col-lg-6 order-lg-1 my-auto showcase-text">
+                  <h2>Easy to Use & Customize</h2>
+                  <p class="lead mb-0">Landing Page is just HTML and CSS splash of SCSS for users who-demand some deeper customization options. Out of the box, just add your contenit and images, and your new landing page will be ready to go!</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Testimonials-->
+  <section class="testimonials text-center bg-light">
+      <div class="container">
+          <h2 class="mb-5">What people are saying...</h2>
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="3.jpg" alt="..." />
+                      <h5>Lissa M.</h5>
+                      <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="4.jpg" alt="..." />
+                      <h5>Fred S.</h5>
+                      <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                      <img class="img-fluid rounded-circle mb-3" src="5.jpg" alt="..." />
+                      <h5>Jack W.</h5>
+                      <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Call to Action-->
+  <section class="call-to-action text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-9 mx-auto"><h2 class="mb-4">Get Started? Sign up now!</h2></div>
+              <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                  <form action="/action_page.php">
+                      <div class="row">
+                          <div class="col-12 col-md-9 mb-2 mb-md-0">
+						  <input type="email" class="form-control form-control-lg"placeholder="Enter Your Email..." name="email" required>
+						  </div>
+                          <div class="col-12 col-md-3"><button class="btn btn-lg btn-primary" style="margin:auto;" type="submit">Submit</button></div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Footer-->
+  <footer class="footer bg-light">
+      <div class="container bg-light">
+          <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                  <ul class="list-inline mb-2">
+                      <li class="list-inline-item"><a href="#ab">About</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#fm">Contact</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                  </ul>
+                  <p class="text-muted small mb-4 mb-lg-0">© MyBoostrap Website 2023. All Rights Reserved.</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                  <ul class="list-inline mb-0">
+                      <li class="list-inline-item mr-3">
+                          <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item mr-3">
+                          <a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x fa-fw"></i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+</body>
+</html>
